@@ -9,5 +9,5 @@ valor_1kw = valor_100kw / 100
 
 valor_total = qntd_quilowatts * valor_1kw
 
-print("Valor de cada quilowatt: R$", valor_1kw)
-print("Valor total a pagar: ", valor_total)
+print(f"Valor de cada quilowatt: R$ {valor_1kw: .2f}")
+print(f"Valor total a pagar: , {valor_total: .2f}")
