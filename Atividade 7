@@ -1,0 +1,10 @@
+#Escreva um algoritmo que solicite ao usuário o nome e o preço de um produto.
+#Em seguida, deve ser mostrada uma mensagem baseada no seguinte exemplo: “Você comprou um produto (Mouse) por R$ 185,00 e acaba de ganhar um desconto de 10%.
+#Assim você vai pagar apenas R$ 166,50 pelo seu produto. Volte sempre!”.
+
+nome = print(input("Digite o nome do produto desejado: "))
+preco = float(input("Digite o preço do produto desejado: "))
+desconto = preco * 0.1
+preco_desconto = preco - desconto
+print("Você comprou o seguinte produto", nome , "por", preco, "R$", "e acaba de ganhar um desconto de 10%,", "o produto agora custa", preco_desconto)
+
