@@ -1,0 +1,10 @@
+# Escreva um programa que alimente uma lista com 5 números e mostre a lista ao contrário.
+
+lista = []
+
+while len(lista) < 5:
+    numero = int(input("Informe número: "))
+    lista.append(numero)
+
+lista.reverse()
+print(lista)

@@ -1,0 +1,7 @@
+# Escreva um programa que apresente a soma dos valores da seguinte lista: [5, 8, 12, 3]
+
+lista = [5, 8, 12, 3]
+
+soma_lista = sum(lista)
+
+print(soma_lista)
