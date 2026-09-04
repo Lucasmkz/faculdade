@@ -1,0 +1,18 @@
+*{
+    background-color: grey;
+}
+.nav-link{
+    color: white;
+    border-radius: 5px;
+}
+.nav-link:hover{
+    background-color: red;
+
+
+
+}
+.p-col{
+    
+    columns: 4;
+    gap:2rem;
+}
