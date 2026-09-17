@@ -113,3 +113,208 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Item 5: Barra de Navegação Centralizada com Hover */
+.navbar {
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #34495e;
+  border-radius: 4px;
+}
+
+/* Item 6: Barra Horizontal em 100% da Largura da Tela */
+.full-width-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e74c3c;
+}
+
+/* Container para descolar elementos da borda da janela */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Item 7: Cabeçalho Descolado (2 Colunas) */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.col-left {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.col-left h1 { margin-bottom: 10px; }
+.col-left h3 { margin-bottom: 10px; color: #7f8c8d; }
+.col-left p { margin-bottom: 15px; }
+.col-left a.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.col-right {
+  flex: 1;
+  text-align: center;
+}
+
+.col-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Item 8: Cartões em 3 Colunas com Hover */
+.cards-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  max-width: 80px;
+  margin: 15px 0;
+}
+
+.card p { margin-bottom: 15px; }
+.card a { color: #3498db; text-decoration: none; font-weight: bold; }
+
+/* Item 9: Tabela com Fundo 100% */
+.table-section {
+  width: 100%;
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.table-container h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #2980b9;
+  color: white;
+}
+
+/* Item 10: Formulário 25% da Área de Conteúdo e Centralizado */
+.form-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.form-container {
+  width: 25%;
+  min-width: 280px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 { margin-bottom: 10px; }
+.form-container p { margin-bottom: 15px; font-size: 0.9em; }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #219150;
+}
+
