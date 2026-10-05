@@ -59,3 +59,13 @@ export function tempoRelativo(iso: string, agora: number = Date.now()): string {
   const dias = Math.floor(horas / 24);
   return dias === 1 ? 'há 1 dia' : `há ${dias} dias`;
 }
+
+/** Lê o código vindo da URL sem quebrar com codificação inválida. */
+export function codigoDaUrl(valor: string | undefined): string {
+  if (!valor) return '';
+  try {
+    return decodeURIComponent(valor).toUpperCase();
+  } catch {
+    return valor.toUpperCase();
+  }
+}

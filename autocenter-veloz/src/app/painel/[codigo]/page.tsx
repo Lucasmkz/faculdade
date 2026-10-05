@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BadgeStatus } from '@/components/BadgeStatus';
+import { Carregando } from '@/components/Carregando';
 import { SeloAprovacao, SeloUrgencia } from '@/components/SeloAprovacao';
 import { useOrdens } from '@/context/OrdensContext';
-import { formatarDataHora, formatarMoeda, ROTULOS_STATUS } from '@/lib/formatadores';
+import { codigoDaUrl, formatarDataHora, formatarMoeda, ROTULOS_STATUS } from '@/lib/formatadores';
 import { calcularTotais } from '@/lib/ordens';
 import type { OrdemServico, StatusOS } from '@/types/ordem';
 
@@ -71,8 +72,8 @@ function FormularioStatus({
 
 export default function DetalheOrdemPage() {
   const params = useParams<{ codigo: string }>();
-  const codigo = decodeURIComponent(params.codigo ?? '').toUpperCase();
-  const { buscarOrdem, atualizarStatus } = useOrdens();
+  const codigo = codigoDaUrl(params.codigo);
+  const { buscarOrdem, atualizarStatus, carregado } = useOrdens();
   const ordem = buscarOrdem(codigo);
 
   const [salvo, setSalvo] = useState(false);
@@ -87,6 +88,8 @@ export default function DetalheOrdemPage() {
     }, 2500);
     return () => clearTimeout(id);
   }, [salvo, copia]);
+
+  if (!carregado) return <Carregando />;
 
   if (!ordem) {
     return (

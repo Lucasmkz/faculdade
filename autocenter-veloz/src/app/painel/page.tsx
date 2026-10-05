@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Carregando } from '@/components/Carregando';
 import { CardOrdem } from '@/components/CardOrdem';
 import { useOrdens } from '@/context/OrdensContext';
 import { useAgora } from '@/hooks/useAgora';
@@ -23,10 +24,12 @@ function ordenar(a: OrdemServico, b: OrdemServico) {
 }
 
 export default function PainelPage() {
-  const { ordens, restaurarDados } = useOrdens();
+  const { ordens, restaurarDados, carregado } = useOrdens();
   const agora = useAgora();
   const [filtro, setFiltro] = useState<Filtro>('todos');
   const [confirmandoRestauracao, setConfirmandoRestauracao] = useState(false);
+
+  if (!carregado) return <Carregando />;
 
   const contar = (status: StatusOS) => ordens.filter((o) => o.status === status).length;
   const resumo = [

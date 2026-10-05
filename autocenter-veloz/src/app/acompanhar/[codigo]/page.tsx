@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { Carregando } from '@/components/Carregando';
 import { ItemOrcamento } from '@/components/ItemOrcamento';
 import { LinhaDoTempo } from '@/components/LinhaDoTempo';
 import { Marca } from '@/components/Marca';
 import { ResumoOrcamento } from '@/components/ResumoOrcamento';
 import { useOrdens } from '@/context/OrdensContext';
-import { formatarDataHora } from '@/lib/formatadores';
+import { codigoDaUrl, formatarDataHora } from '@/lib/formatadores';
 import { calcularTotais } from '@/lib/ordens';
 import type { StatusOS } from '@/types/ordem';
 
@@ -16,9 +17,17 @@ const STATUS_QUE_ACEITAM_RESPOSTA: StatusOS[] = ['recebido', 'diagnostico', 'agu
 
 export default function AcompanharPage() {
   const params = useParams<{ codigo: string }>();
-  const codigo = decodeURIComponent(params.codigo ?? '').toUpperCase();
-  const { buscarOrdem, responderItem } = useOrdens();
+  const codigo = codigoDaUrl(params.codigo);
+  const { buscarOrdem, responderItem, carregado } = useOrdens();
   const ordem = buscarOrdem(codigo);
+
+  if (!carregado) {
+    return (
+      <main className="flex-1 bg-zinc-900">
+        <Carregando escuro />
+      </main>
+    );
+  }
 
   if (!ordem) {
     return (

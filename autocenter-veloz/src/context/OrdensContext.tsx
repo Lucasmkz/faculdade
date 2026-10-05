@@ -8,6 +8,8 @@ const CHAVE_STORAGE = 'autocenter-veloz:ordens';
 
 interface OrdensContextValor {
   ordens: OrdemServico[];
+  // Fica true depois que os dados salvos no navegador foram lidos.
+  carregado: boolean;
   buscarOrdem: (codigo: string) => OrdemServico | undefined;
   responderItem: (codigo: string, itemId: string, aprovacao: Aprovacao) => void;
   atualizarStatus: (codigo: string, status: StatusOS, observacao?: string) => void;
@@ -93,8 +95,8 @@ export function OrdensProvider({ children }: { children: React.ReactNode }) {
   }, [setOrdens]);
 
   const valor = useMemo(
-    () => ({ ordens, buscarOrdem, responderItem, atualizarStatus, restaurarDados }),
-    [ordens, buscarOrdem, responderItem, atualizarStatus, restaurarDados],
+    () => ({ ordens, carregado, buscarOrdem, responderItem, atualizarStatus, restaurarDados }),
+    [ordens, carregado, buscarOrdem, responderItem, atualizarStatus, restaurarDados],
   );
 
   return <OrdensContext.Provider value={valor}>{children}</OrdensContext.Provider>;
